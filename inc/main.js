@@ -13,9 +13,14 @@ loaddata(ssurlen,'en');
                     let b = $("#schedulebox"+i); 
                     if (i==v){
                         //b.show();
-                        $("#schedulebox"+i).show();
+                        if ($("#schedulebox"+i).is(':visible')){
+                            $("#schedulebox"+i).hide();
+                        }else{
+                            $("#schedulebox"+i).show();
+                        }
+                        
                     }else{
-                        console.log(i);
+                        
                         $("#schedulebox"+i).hide();
                     }
                 }
@@ -103,7 +108,10 @@ function loaddata(url,lang){
                         "email" : data.feed.entry[i].gsx$聯絡email.$t,
                         "fb" : data.feed.entry[i].gsx$聯絡fb.$t,
                         "twitter" : data.feed.entry[i].gsx$聯絡twitter.$t,
-                        "site" : data.feed.entry[i].gsx$聯絡site.$t
+                        "site" : data.feed.entry[i].gsx$聯絡site.$t,
+                        "cooperate" : data.feed.entry[i].gsx$聯絡合作夥伴.$t,
+                        "cooperateurl" : data.feed.entry[i].gsx$聯絡合作夥伴網址.$t,
+                        "cooperateimg" : data.feed.entry[i].gsx$聯絡合作夥伴圖片.$t
                     });
                 }
         }
@@ -194,11 +202,14 @@ function loaddata(url,lang){
                                     '<tr id="schedulebox'+i+'" style="display:none;" >'+
                                         '<td colspan="2" ><div class="container">'+
                                             '<div class="row">'+
-                                                '<div class ="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>'+
-                                                '<div class ="col-xs-4 col-sm-4 col-md-4 col-lg-4"><img src="'+dataen.schedule[i].pic+'" class="img-responsive"></img></div>'+
-                                                '<div class ="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>'+
-                                                '<div class ="col-xs-5 col-sm-5 col-md-5 col-lg-5"><p>'+dataen.schedule[i].info+'</p></div>'+
-                                                '<div class ="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>'+
+                                                '<div class ="col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>'+
+                                                '<div class ="col-xs-6 col-sm-6 col-md-6 col-lg-6"><p>'+dataen.schedule[i].info+'</p></div>'+
+                                                '<div class ="col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>'+
+                                            '</div>'+
+                                            '<div class="row">'+
+                                                '<div class ="col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>'+
+                                                '<div class ="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="text-align: center;"><img src="'+dataen.schedule[i].pic+'" class="img-responsive"></img></div>'+
+                                                '<div class ="col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>'+
                                             '</div>'+
                                         '</div></td>'+
                                     '</tr>'+
@@ -311,8 +322,23 @@ function loaddata(url,lang){
                 '</div>'    
                 );
         //  TOPICS
-
+        function funclick(url){
+            window.open(url,'');
+            return false;
+        }
         //  CONTACT
+        var cooperatestr='';
+        for (let i=0;i<contact.length; i+=1) {
+            if (contact[i].cooperateimg===''){}
+            else{
+                cooperatestr+=  '<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">'+
+                                '<li ><a href="#"  onclick="window.open(\''+contact[i].cooperateurl+'\',this)">'+
+                                    '<img src="'+contact[i].cooperateimg+'"  width="150px" height="150px" >'+
+                                '</a></li></div>';
+                                console.log(i);
+            }
+
+        }
         $("#contact").html(
             '<div class="main_block">'+
                     '<header>'+
@@ -332,7 +358,10 @@ function loaddata(url,lang){
                                         '<i class="fa fa-phone fa-3x"></i>'+
                                     '</a></li>'+
                                     '<li><a href="#">'+
-                                        '<i class="fa fa-envelope-o fa-3x"></i>'+
+                                        '<i class="fa fa-envelope fa-3x"></i>'+
+                                    '</a></li>'+
+                                    '<li><a href="#">'+
+                                        '<i class="fa fa-handshake-o fa-3x"></i>'+
                                     '</a></li>'+
                                     /*
                                     '<li>'+
@@ -367,6 +396,16 @@ function loaddata(url,lang){
                                     '</p>'+
                                 '</div>'+
 
+                                '<div class="info">'+
+                                    '</br>'+
+                                    '<div class="container">'+
+                                        '<div class="row">'+
+                                            '<ul class="category-group">'+
+                                                cooperatestr+
+                                            '</ul>'+
+                                        '</div>'+
+                                    '</div>'+
+                                '</div>'+
                             '</div>'+
                             
 
@@ -389,9 +428,7 @@ function loaddata(url,lang){
             $("#navfooter").html(
                 '<div class="navbar_icons">'+
                     '<ul>'+
-                        '<li><a href="'+dataen.contact[0].fb+'"><i class="fa fa-facebook"></i></a></li>'+
-                        '<li><a href="'+dataen.contact[0].site+'"><i class="fa fa-dribbble"></i></a></li>'+
-                        '<li><a href="'+dataen.contact[0].twitter+'"><i class="fa fa-twitter"></i></a></li>'+
+                        '<li><a href="'+dataen.contact[0].fb+'"><i class="fab fa-facebook-square"></i></a></li>'+
                         '<li><a id="lang_en" >En</a></li>'+
                         '<li><a id="lang_tw">中</a></li>'+
                     '</ul>'+
