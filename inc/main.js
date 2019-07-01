@@ -208,7 +208,7 @@ function loaddata(url,lang){
                                             '</div>'+
                                             '<div class="row">'+
                                                 '<div class ="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>'+
-                                                '<div class ="col-xs-8 col-sm-8 col-md-8 col-lg-8" style="text-align: center;"><img src="'+dataen.schedule[i].pic+'" class="img-responsive"></img></div>'+
+                                                '<div class ="col-xs-8 col-sm-8 col-md-8 col-lg-8" style="text-align: center;"><img src="'+dataen.schedule[i].pic+'" class="img-responsive center"></img></div>'+
                                                 '<div class ="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>'+
                                             '</div>'+
                                         '</div></td>'+
@@ -249,7 +249,7 @@ function loaddata(url,lang){
                                         '<div class="container">'+
                                             '<div class="row">'+
                                                 '<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>'+
-                                                '<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">'+
+                                                '<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">'+
                                                     '<p>'+ dataen.lecturer[i].intro + '</p>'+
                                                 '</div>'+
                                         '</div></div>'+
@@ -293,7 +293,7 @@ function loaddata(url,lang){
                                             '<div class="container">'+
                                                 '<div class="row">'+
                                                     '<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>'+
-                                                    '<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">'+
+                                                    '<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">'+
                                                         '<p>'+ dataen.topics[i].maincontent + '</p>'+
                                                     '</div>'+
                                             '</div></div>'+
