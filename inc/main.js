@@ -202,14 +202,14 @@ function loaddata(url,lang){
                                     '<tr id="schedulebox'+i+'" style="display:none;" >'+
                                         '<td colspan="2" ><div class="container">'+
                                             '<div class="row">'+
-                                                '<div class ="col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>'+
-                                                '<div class ="col-xs-6 col-sm-6 col-md-6 col-lg-6"><p>'+dataen.schedule[i].info+'</p></div>'+
-                                                '<div class ="col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>'+
+                                                '<div class ="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>'+
+                                                '<div class ="col-xs-8 col-sm-8 col-md-8 col-lg-8"><p>'+dataen.schedule[i].info+'</p></div>'+
+                                                '<div class ="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>'+
                                             '</div>'+
                                             '<div class="row">'+
-                                                '<div class ="col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>'+
-                                                '<div class ="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="text-align: center;"><img src="'+dataen.schedule[i].pic+'" class="img-responsive"></img></div>'+
-                                                '<div class ="col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>'+
+                                                '<div class ="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>'+
+                                                '<div class ="col-xs-8 col-sm-8 col-md-8 col-lg-8" style="text-align: center;"><img src="'+dataen.schedule[i].pic+'" class="img-responsive"></img></div>'+
+                                                '<div class ="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>'+
                                             '</div>'+
                                         '</div></td>'+
                                     '</tr>'+
