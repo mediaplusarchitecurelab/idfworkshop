@@ -1029,7 +1029,7 @@ fotoramaVersion = "4.6.4",
                 a[ this.prefix + "RequestFullScreen" ]()
         }, vc.cancel = function () {
                 setTimeout(function () {
-                    window.location.href = window.location.href;
+                    location.reload(true);
                 }, 100);
                 /*
             return "" === this.prefix ? b.cancelFullScreen() :
