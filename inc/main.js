@@ -208,6 +208,7 @@ function loaddata(url,lang){
                                             '</div>'+
                                             '<div class="row">'+
                                                 '<div class ="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>'+
+                                                // bootstrap 使用 class="img-responsive" !!!! use margin: 0 auto 可以置中 !!!!!
                                                 '<div class ="col-xs-8 col-sm-8 col-md-8 col-lg-8 center"><img src="'+dataen.schedule[i].pic+'" class="img-responsive" style="margin: 0 auto;"></img></div>'+
                                                 '<div class ="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>'+
                                             '</div>'+
@@ -238,44 +239,43 @@ function loaddata(url,lang){
         var lecturerstr='';
         for (let i=0;i<dataen.lecturer.length; i+=1) {
             lecturerstr+=
-                                '<div class="item">'+
-                                    '<div class="item_img">'+
-                                        '<img src="'+dataen.lecturer[i].path+'" data-src="'+dataen.lecturer[i].path+'" alt="lecturer-'+i+'" width="256" height="167"/>'+
-                                    '</div>'+
-                                    '<div class="item-info">'+
-                                        '<p class="team-name">'+ dataen.lecturer[i].name +
-                                            '<span class="team-work">'+ dataen.lecturer[i].school +'</span>'+
-                                            '<span class="team-work">'+ dataen.lecturer[i].position +'</span></p>'+
-                                        '<div class="container">'+
+                    '<div class="item col-xs-6 col-sm-6 col-md-4 col-lg-4" >'+
+                        '<div class="item_img">'+
+                            '<img src="#" data-src="'+dataen.lecturer[i].path+'" alt="lecturer-'+i+'" />'+
+                        '</div>'+
+                        '<div class="item-info">'+
+                                '<p class="team-name">'+ dataen.lecturer[i].name + '</br>'+
+                                '</p>'+
+                                 
+                                '<div class="container team-work">'+
                                             '<div class="row">'+
-                                                '<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>'+
-                                                '<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">'+
+                                                '<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>'+
+                                                '<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 text-left">'+
                                                     '<p>'+ dataen.lecturer[i].intro + '</p>'+
-                                                '</div>'+
-                                        '</div></div>'+
-                                        '<ul class="social-icons">'+
-                                            '<li><a href="'+dataen.lecturer[i].fb+'"><i class="fa fa-facebook"></i></a></li>'+
-                                            '<li><a href="'+dataen.lecturer[i].site+'"><i class="fa fa-dribbble"></i></a></li>'+
-                                            '<li><a href="'+dataen.lecturer[i].twitter+'"><i class="fa fa-twitter"></i></a></li>'+
-                                        '</ul>'+
-                                        '<a href="#" class="fotorama_show-icons">'+
-                                        '</a>'+
-                                    '</div>'+
-                                '</div>';
-        }
+                                            '</div>'+
+                                '</div></div>'+
+
+                                '<ul class="social-icons">'+
+                                    '<li><a href="'+dataen.lecturer[i].fb+'"><i class="fab fa-facebook-square fa-2x"></i></a></li>'+
+                                '</ul>'+
+                                    '<a href="#" class="fotorama_show-icons">'+
+                                '</a>'+
+                        '</div>'+
+                    '</div>';}
+
         $("#lecturer").html(
-                '<div class="main_block carousel">'+
+            '<div class="main_block carousel">'+
                     '<header>'+
                         '<h1>'+dataen.mainnav[2].tab+'</h1>'+
                     '</header>'+
                     '<div class="container">'+
                         '<div class="row">'+
-                            '<div class="clipCarousel">'+
+                            '<div class="clipCarousel col-xs-12 col-sm-12 col-md-12 col-lg-12 col-centered">'+
                                 lecturerstr+
                             '</div>'+
                         '</div>'+
                     '</div>'+
-                '</div>'    
+                '</div>'  
                 );
         //  LECTURER
 
@@ -283,24 +283,25 @@ function loaddata(url,lang){
         var topicsstr='';
         for (let i=0;i<dataen.topics.length; i+=1) {
             topicsstr+=
-                                '<div class="item">'+
+                                '<div class="item col-xs-6 col-sm-6 col-md-4 col-lg-4">'+
                                     '<div class="item_img">'+
-                                        '<img src="'+dataen.topics[i].path+'" data-src="'+dataen.topics[i].path+'" alt="topics-'+i+'" width="256" height="167"/>'+
+                                        '<img src="'+dataen.topics[i].path+'" data-src="'+dataen.topics[i].path+'" alt="topics-'+i+'" />'+
                                     '</div>'+
                                     '<div class="item-info">'+
                                         '<p class="team-name">'+ dataen.topics[i].name +
-                                            '<span class="team-work">'+ dataen.topics[i].lecturer +'</span></br>'+
-                                            '<div class="container">'+
-                                                '<div class="row">'+
-                                                    '<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>'+
-                                                    '<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">'+
-                                                        '<p>'+ dataen.topics[i].maincontent + '</p>'+
-                                                    '</div>'+
-                                            '</div></div>'+
+                                                            '</br>'+dataen.topics[i].lecturer + '</br>'+
+                                        '</p>'+
+                                        
+                                        '<div class="container team-work">'+
+                                            '<div class="row">'+
+                                                '<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>'+
+                                                '<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 text-left">'+
+                                                    '<p>'+ dataen.topics[i].maincontent + '</p>'+
+                                            '</div>'+
+                                        '</div></div>'+
+
                                         '<ul class="social-icons">'+
-                                            '<li><a href="'+dataen.topics[i].fb+'"><i class="fa fa-facebook"></i></a></li>'+
-                                            '<li><a href="'+dataen.topics[i].site+'"><i class="fa fa-dribbble"></i></a></li>'+
-                                            '<li><a href="'+dataen.topics[i].twitter+'"><i class="fa fa-twitter"></i></a></li>'+
+                                            '<li><a href="'+dataen.topics[i].fb+'"><i class="fab fa-facebook-square fa-2x"></i></a></li>'+
                                         '</ul>'+
                                         '<a href="#" class="fotorama_show-icons">'+
                                         '</a>'+
@@ -314,7 +315,7 @@ function loaddata(url,lang){
                     '</header>'+
                     '<div class="container">'+
                         '<div class="row">'+
-                            '<div class="clipCarousel">'+
+                            '<div class="clipCarousel  col-xs-12 col-sm-12 col-md-12 col-lg-12 col-centered">'+
                                 topicsstr+
                             '</div>'+
                         '</div>'+
@@ -335,7 +336,6 @@ function loaddata(url,lang){
                                 '<li ><a href="#"  onclick="window.open(\''+contact[i].cooperateurl+'\',this)">'+
                                     '<img src="'+contact[i].cooperateimg+'"  width="150px" height="150px" >'+
                                 '</a></li></div>';
-                                console.log(i);
             }
 
         }
@@ -558,8 +558,6 @@ function loaddata(url,lang){
                     );
                     $('.map').find('.bottom .close-this').off('click').on(
                         'click', function (e) {
-
-                            e.preventDefault();
                             position = $(self).offset();
                             $(this).parent().parent().find('#map-canvas').animate(
                                 {
@@ -575,13 +573,15 @@ function loaddata(url,lang){
                                     height: height
                                 }, 500, function () {
                                     $(this).removeClass('open');
+
                                 }
                             );
+
                         }
                     );
+
                 }
                 else {
-
                     var height = $(this).parent().parent().parent().find('.info.open').outerHeight(true);
                     $(this).parent().parent().parent().find('.info').height('');
                     $(this).parent().parent().find('li').removeClass('active');
