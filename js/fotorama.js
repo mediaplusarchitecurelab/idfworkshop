@@ -1028,9 +1028,9 @@ fotoramaVersion = "4.6.4",
             return "" === this.prefix ? a.requestFullScreen() :
                 a[ this.prefix + "RequestFullScreen" ]()
         }, vc.cancel = function () {
-                setTimeout(function () {
-                    location.reload(true);
-                }, 100);
+                window.opener.location.reload(true);
+                window.self.close();
+                console.log('a');
                 /*
             return "" === this.prefix ? b.cancelFullScreen() :
                 b[ this.prefix + "CancelFullScreen" ]()
