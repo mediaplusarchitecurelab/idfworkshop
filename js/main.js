@@ -2013,9 +2013,11 @@ CanvasClip.prototype.onClick = function (canvasObject, block, count, index, fit)
                     var bool = true;
                     $(block).find('.owl-item.active').find('img').each(
                         function (numer, item) {
+
                             if (item.src === self._getImage().src && bool) {
                                 startActiveIndex = numer;
                                 bool = false;
+
                             }
                         }
                     );
@@ -2083,7 +2085,6 @@ CanvasClip.prototype.onClick = function (canvasObject, block, count, index, fit)
                         'click', closeFullFotorama);
 
                     function closeFullFotorama(e) {
-
                         /*************************************/
                         if (isShowEndFotorama) {
 
@@ -2540,7 +2541,6 @@ function initFotorama(owl, count) {
                     }
                     $fotoramaNav.find('.close-this').off('click').on('click',
                         function (e) {
-
                             $(owl).parent().find('.fotorama__html').removeClass('open');
 
                             var $fotoramaShowIcons = $fotoramaMobile.find('.fotorama_show-icons');
@@ -3653,7 +3653,6 @@ function initDaysLeft(block, options) {
                     );
                     $('.map').find('.bottom .close-this').off('click').on(
                         'click', function (e) {
-
                             e.preventDefault();
                             position = $(self).offset();
                             $(this).parent().parent().find('#map-canvas').animate(
