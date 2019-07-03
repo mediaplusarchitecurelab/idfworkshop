@@ -170,7 +170,7 @@ function loaddata(url,lang){
                                                     dataen.about[0].subcontent+
                                                 '</p>'+
                                                 '<footer style="text-align: right">'+
-                                                    'chair editor, Tengwen'+
+                                                    'chair editor, Teng Wen Chang'+
                                                 '</footer>'+
                                             '</blockquote>'+
                                         '</div>'+
