@@ -101,7 +101,7 @@ function loaddata(url,lang){
                     });
                 }
 
-                if (typeof data.feed.entry[i].gsx$聯絡地址.$t  !== undefined ){
+                if (typeof data.feed.entry[i].gsx$聯絡合作夥伴.$t  !== undefined ){
                     contact.push({
                         "address" : data.feed.entry[i].gsx$聯絡地址.$t,
                         "tel" : data.feed.entry[i].gsx$聯絡電話.$t,
@@ -329,16 +329,20 @@ function loaddata(url,lang){
         }
         //  CONTACT
         var cooperatestr='';
+        console.log(contact.length);
         for (let i=0;i<contact.length; i+=1) {
             if (contact[i].cooperateimg===''){}
             else{
-                cooperatestr+=  '<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">'+
-                                '<li ><a href="#"  onclick="window.open(\''+contact[i].cooperateurl+'\',this)">'+
-                                    '<img src="'+contact[i].cooperateimg+'"  width="150px" height="150px" >'+
-                                '</a></li></div>';
+                console.log(i);
+                cooperatestr+= 
+                                '<div class="item"><a href="#" onclick="window.open(\''+contact[i].cooperateurl+'\',this)">'+
+                                    '<img src="'+contact[i].cooperateimg+'" width="200px">'+
+                                '</a></div>';
             }
 
         }
+
+
         $("#contact").html(
             '<div class="main_block">'+
                     '<header>'+
@@ -398,11 +402,9 @@ function loaddata(url,lang){
 
                                 '<div class="info">'+
                                     '</br>'+
-                                    '<div class="container">'+
-                                        '<div class="row">'+
-                                            '<ul class="category-group">'+
-                                                cooperatestr+
-                                            '</ul>'+
+                                    '<div class="container" >'+
+                                        '<div class="row owl-carousel" id="contact-brand">'+
+                                            cooperatestr+
                                         '</div>'+
                                     '</div>'+
                                 '</div>'+
@@ -415,6 +417,16 @@ function loaddata(url,lang){
             '</div>'
                 );
             //  CONTACT
+            //$(document).ready(function() {
+                $('#contact-brand').owlCarousel({    
+                    items:8,
+                    loop:true,
+                    margin:10,
+                    autoplay:true,
+                    autoplayTimeout:5000,
+                    autoplayHoverPause:true
+                });
+            //}
 
             // NAV HEADER
             $("#navtab-2").text(dataen.mainnav[0].tab);
@@ -430,7 +442,7 @@ function loaddata(url,lang){
                     '<ul>'+
                         '<li><a href="'+dataen.contact[0].fb+'"><i class="fab fa-facebook-square"></i></a></li>'+
                         '<li><a id="lang_en" >En</a></li>'+
-                        '<li><a id="lang_tw">中</a></li>'+
+//                        '<li><a id="lang_tw">中</a></li>'+
                     '</ul>'+
                 '</div>'+
                 '<span>'+dataen.main[0].navfooter+
