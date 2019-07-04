@@ -507,12 +507,8 @@ function loaddata(url,lang){
                 $('.center-menu').removeClass('iconOpen');
                 showSocialIcons();
 
-            }
-            // SOCIALICONS 
-// CHANGE CATEGORY
-( function () {
     
-            $('#contact-brand').owlCarousel({    
+                $('#contact-brand').owlCarousel({    
                     items:3,
                     loop:true,
                     margin:10,
@@ -520,6 +516,10 @@ function loaddata(url,lang){
                     autoplayTimeout:5000,
                     autoplayHoverPause:true
                 });
+            }
+            // SOCIALICONS 
+// CHANGE CATEGORY
+( function () {
     var changeCategory = function () {
         $('.category-group').parent().find('.info').height('');
         $('.category-group').find('li a').off('click').on('click',
