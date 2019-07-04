@@ -511,7 +511,15 @@ function loaddata(url,lang){
             // SOCIALICONS 
 // CHANGE CATEGORY
 ( function () {
-
+    
+            $('#contact-brand').owlCarousel({    
+                    items:3,
+                    loop:true,
+                    margin:10,
+                    autoplay:true,
+                    autoplayTimeout:5000,
+                    autoplayHoverPause:true
+                });
     var changeCategory = function () {
         $('.category-group').parent().find('.info').height('');
         $('.category-group').find('li a').off('click').on('click',
@@ -651,13 +659,5 @@ function loaddata(url,lang){
                 loaddata(ssurltw, "tw");
             });
 
-            $('#contact-brand').owlCarousel({    
-                    items:3,
-                    loop:true,
-                    margin:10,
-                    autoplay:true,
-                    autoplayTimeout:5000,
-                    autoplayHoverPause:true
-                });
 });
 }
