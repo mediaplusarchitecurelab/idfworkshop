@@ -512,7 +512,7 @@ function loaddata(url,lang){
 // CHANGE CATEGORY
 ( function () {
     $('#contact-brand').owlCarousel({    
-                    items:3,
+                    items:5,
                     loop:true,
                     margin:10,
                     autoplay:true,
