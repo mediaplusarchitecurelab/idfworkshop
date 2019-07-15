@@ -1,4 +1,4 @@
-var ssurlen = "https://spreadsheets.google.com/feeds/list/1QkW7dIPp_UT-e3FKyQujnQCWhp90n5giVhh5ZCh7VFs/1/public/values?alt=json";
+var ssurlen = "ssdata.json";
 var ssurltw = "https://spreadsheets.google.com/feeds/list/1QkW7dIPp_UT-e3FKyQujnQCWhp90n5giVhh5ZCh7VFs/2/public/values?alt=json";
 
 
