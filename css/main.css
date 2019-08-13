@@ -862,15 +862,9 @@ main.collapsedOpen {
 .item .item-info .team-work {
   display: none;
 }
-/* line 555, ../sass/_partials/_layout/_page.scss */
-.item .item-info .social-icons {
-  display: none;
-  list-style: none;
-  margin: 0 auto;
-}
 /* line 559, ../sass/_partials/_layout/_page.scss */
 .item .item-info .social-icons > li {
-  float: left;
+  float: center;
 }
 /* line 563, ../sass/_partials/_layout/_page.scss */
 .item .item-info .fotorama_show-icons {
