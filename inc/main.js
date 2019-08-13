@@ -1,11 +1,9 @@
-var ssurlen = "ssdata.json";
+var ssurlen = "https://spreadsheets.google.com/feeds/list/1QkW7dIPp_UT-e3FKyQujnQCWhp90n5giVhh5ZCh7VFs/1/public/values?alt=json";
 var ssurltw = "https://spreadsheets.google.com/feeds/list/1QkW7dIPp_UT-e3FKyQujnQCWhp90n5giVhh5ZCh7VFs/2/public/values?alt=json";
 
 
 //( function () {
 loaddata(ssurlen,'en');
-
-
 
     var collapsebox = function (v,all){
     
@@ -38,6 +36,7 @@ function loaddata(url,lang){
         var schedule=[];
         var lecturer=[];
         var topics=[];
+        var keynote=[];
         var contact=[];
 
         for (let i = 0; i < data.feed.entry.length; i+=1) {
@@ -100,6 +99,20 @@ function loaddata(url,lang){
                         "site" : data.feed.entry[i].gsx$主題site.$t
                     });
                 }
+                
+
+                if (typeof data.feed.entry[i].gsx$主講老師姓名.$t  !== undefined && data.feed.entry[i].gsx$主講老師姓名.$t  !== ""){
+                    keynote.push({
+                        "name" : data.feed.entry[i].gsx$主講老師姓名.$t,
+                        "school" : data.feed.entry[i].gsx$主講老師學校.$t,
+                        "position" : data.feed.entry[i].gsx$主講老師職稱.$t,
+                        "intro" : data.feed.entry[i].gsx$主講老師介紹.$t,
+                        "path" : data.feed.entry[i].gsx$主講老師路徑.$t,
+                        "fb" : data.feed.entry[i].gsx$主講老師fb.$t,
+                        "twitter" : data.feed.entry[i].gsx$主講老師twitter.$t,
+                        "site" : data.feed.entry[i].gsx$主講老師site.$t
+                    });
+                }
 
                 if (typeof data.feed.entry[i].gsx$聯絡合作夥伴.$t  !== undefined ){
                     contact.push({
@@ -121,6 +134,7 @@ function loaddata(url,lang){
         dataen.about = about;
         dataen.schedule = schedule;
         dataen.lecturer = lecturer;
+        dataen.keynote = keynote;
         dataen.topics = topics;
         dataen.contact = contact;
         //console.log(dataen.topics.length);
@@ -132,8 +146,7 @@ function loaddata(url,lang){
         $("#bg-slider").html(bgstr);
         // BACKGROUND
         
-        //  MAIN
-    
+        //  MAIN    
         $("#main").html(
                         '<div class="main-page main_block">'+
                             '<header>'+
@@ -322,7 +335,53 @@ function loaddata(url,lang){
                     '</div>'+
                 '</div>'    
                 );
+
         //  TOPICS
+
+        //  KEYNOTE
+        var keynotestr='';
+        for (let i=0;i<dataen.keynote.length; i+=1) {
+            keynotestr+=
+                    '<div class="item col-xs-6 col-sm-6 col-md-4 col-lg-4" >'+
+                        '<div class="item_img">'+
+                            '<img src="#" data-src="'+dataen.keynote[i].path+'" alt="keynote-'+i+'" />'+
+                        '</div>'+
+                        '<div class="item-info">'+
+                                '<p class="team-name">'+ dataen.keynote[i].name + '</br>'+
+                                '</p>'+
+                                 
+                                '<div class="container team-work">'+
+                                            '<div class="row">'+
+                                                '<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>'+
+                                                '<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 text-left">'+
+                                                    '<p>'+ dataen.keynote[i].intro + '</p>'+
+                                            '</div>'+
+                                '</div></div>'+
+
+                                '<ul class="social-icons">'+
+                                    '<li><a href="'+dataen.keynote[i].fb+'"><i class="fab fa-facebook-square fa-2x"></i></a></li>'+
+                                '</ul>'+
+                                    '<a href="#" class="fotorama_show-icons">'+
+                                '</a>'+
+                        '</div>'+
+                    '</div>';}
+
+        $("#keynote").html(
+            '<div class="main_block carousel">'+
+                    '<header>'+
+                        '<h1>'+dataen.mainnav[4].tab+'</h1>'+
+                    '</header>'+
+                    '<div class="container">'+
+                        '<div class="row">'+
+                            '<div class="clipCarousel col-xs-12 col-sm-12 col-md-12 col-lg-12 col-centered">'+
+                                keynotestr+
+                            '</div>'+
+                        '</div>'+
+                    '</div>'+
+                '</div>'  
+                );
+        //  KEYNOTE
+
         function funclick(url){
             window.open(url,'');
             return false;
@@ -346,7 +405,7 @@ function loaddata(url,lang){
         $("#contact").html(
             '<div class="main_block">'+
                     '<header>'+
-                        '<h1>'+dataen.mainnav[4].tab+'</h1>'+
+                        '<h1>'+dataen.mainnav[5].tab+'</h1>'+
                     '</header>'+
 
                     '<div class="container">'+
@@ -427,6 +486,7 @@ function loaddata(url,lang){
             $("#navtab-4").text(dataen.mainnav[2].tab);
             $("#navtab-5").text(dataen.mainnav[3].tab);
             $("#navtab-6").text(dataen.mainnav[4].tab);
+            $("#navtab-7").text(dataen.mainnav[5].tab);
             // NAV HEADER
 
             // NAV FOOTER
